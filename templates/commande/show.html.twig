@@ -26,9 +26,34 @@
         </tbody>
     </table>
 
+    <h1>Articles dans la commande</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Article</th>
+                <th>Quantité</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for commandeArticle in articles %}
+                <tr>
+                    <td>{{ commandeArticle.article.nom }}</td>
+                    <td>{{ commandeArticle.quantite }}</td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="2">Aucun article ajouté à cette commande.</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
     <a href="{{ path('app_commande_index') }}">back to list</a>
 
     <a href="{{ path('app_commande_edit', {'id': commande.id}) }}">edit</a>
+
+    <a href="{{ path('app_commande_add_article', {'id': commande.id}) }}" class="btn btn-success mt-3">Ajouter des articles</a>
 
     {{ include('commande/_delete_form.html.twig') }}
 {% endblock %}

@@ -12,7 +12,7 @@
         "doctrine/doctrine-migrations-bundle": "^3.3",
         "doctrine/orm": "^3.3",
         "phpdocumentor/reflection-docblock": "^5.6",
-        "phpstan/phpdoc-parser": "*",
+        "phpstan/phpdoc-parser": "^1.18",
         "symfony/asset": "6.3.*",
         "symfony/asset-mapper": "6.3.*",
         "symfony/console": "6.3.*",

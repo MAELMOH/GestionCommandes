@@ -7,6 +7,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: CommandeRepository::class)]
 class Commande
@@ -19,8 +20,9 @@ class Commande
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $date = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $status = null;
+    #[ORM\Column(type: Types::STRING, length: 20)]
+    #[Assert\Choice(['En attente', 'En cours', 'Livrée'])]
+    private ?string $status = 'En attente';
 
     #[ORM\Column]
     private ?int $utilisateur_id = null;
@@ -31,6 +33,7 @@ class Commande
     public function __construct()
     {
         $this->commandeArticles = new ArrayCollection();
+        $this->date = new \DateTime();
     }
 
     public function getId(): ?int

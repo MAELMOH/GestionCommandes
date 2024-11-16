@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil{% endblock %}
+
+{% block body %}
+<div class="container mt-5">
+    <h1 class="text-center">Bienvenue dans votre système de gestion des commandes et des articles</h1>
+    <p class="text-center mt-3">
+        Une solution simple et efficace pour gérer vos articles et vos commandes en toute simplicité.
+    </p>
+
+    <div class="row mt-5">
+        <!-- Section Articles -->
+        <div class="col-md-6">
+            <div class="card text-center shadow">
+                <div class="card-header">
+                    Gestion des Articles
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">Vos articles à portée de clic</h5>
+                    <p class="card-text">
+                        Ajoutez, modifiez ou supprimez des articles pour garder votre catalogue à jour.
+                    </p>
+                    <a href="{{ path('app_article_index') }}" class="btn btn-primary">Accéder aux articles</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section Commandes -->
+        <div class="col-md-6">
+            <div class="card text-center shadow">
+                <div class="card-header">
+                    Gestion des Commandes
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">Suivez vos commandes</h5>
+                    <p class="card-text">
+                        Créez de nouvelles commandes et gérez celles existantes en quelques clics.
+                    </p>
+                    <a href="{{ path('app_commande_index') }}" class="btn btn-primary">Accéder aux commandes</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="text-center mt-5">
+        <p class="text-muted">© {{ "now"|date("Y") }} Votre Application - Tous droits réservés.</p>
+    </footer>
+</div>
+{% endblock %}
